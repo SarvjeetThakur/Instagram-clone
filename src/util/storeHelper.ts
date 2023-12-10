@@ -1,3 +1,3 @@
 export const storeKeys={
-    isLogin:'login'
+    isLogin:'islogin'
 }

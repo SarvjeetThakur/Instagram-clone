@@ -2,7 +2,7 @@ import { memo, useEffect } from "react"
 import { isAuth } from "../../hook/islogin"
 import { Outlet, useNavigate } from "react-router-dom"
 import { authRoutes } from "../routes"
-import Footer from "../../componets/reusable/footer"
+// import Footer from "../../componets/reusable/footer"
 
 export default memo(function AppProviders() {
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ export default memo(function AppProviders() {
       <div className="container mx-auto absolute">
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
 
     </>
   )

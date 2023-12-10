@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import InputBox from "../../../componets/reusable/InputBox";
 import Button from "../../../componets/reusable/button";
 import { IoLogoFacebook } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { authRoutes } from "../../../routes/routes";
+import { Link, useNavigate } from "react-router-dom";
+import { appRoutes, authRoutes } from "../../../routes/routes";
 import {
   instgramName,
   screenshot1,
@@ -11,10 +11,12 @@ import {
   screenshot3,
   screenshot4,
 } from "./assets/images";
+import { storeKeys } from "../../../util/storeHelper";
 
 const screenSots = [screenshot1, screenshot2, screenshot3, screenshot4];
 
 export default function SignIn() {
+  const navigate=useNavigate()
   const username = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
   const [image, setImage] = useState<any>(screenshot1);
@@ -26,15 +28,34 @@ export default function SignIn() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleLogin = (e: any) => {
+  const validateInput = (value: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/;
+    const usernameRegex = /^[a-zA-Z0-9_]{3,15}$/;
+    if (emailRegex.test(value) || phoneRegex.test(value) || usernameRegex.test(value)) {
+      return false
+    } else {
+      return true
+    }
+  };
+
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(
-      `Logging in with username: ${username.current?.value} and password: ${password.current?.value}`
-    );
+    let isError = validateInput(username.current?.value ? username.current?.value : '')
+    if (isError) {
+      console.log('Invalid input. Please enter a valid email, phone number, or username.');
+    } else {
+      localStorage.setItem(storeKeys.isLogin,'true')
+      navigate(appRoutes.home.path,{replace:true})
+      console.log(
+        `Logging in with username: ${username.current?.value} and password: ${password.current?.value}`
+      );
+    }
+
   };
 
   return (
-    <div className="flex h-screen pt-[40px] justify-center">
+    <div className="flex h-screen pt-[40px] justify-center items-center">
       <div className="flex justify-end w-full mr-[15px]">
         <div className="bg-black rounded-[27px] h-[540px] border border-black shadow-[0_0_7px_gray] mr-[29px] ">
           <img
