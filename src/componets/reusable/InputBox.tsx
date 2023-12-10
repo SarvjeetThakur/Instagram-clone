@@ -10,8 +10,8 @@ interface InputBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: any
 }
 const defaultInputClass =
-  "w-full border rounded-md relative disabled:bg-slate-100 p-1";
-const defaulEyesClass = " absolute top-4 right-3 cursor-pointer";
+  "w-full border rounded-md relative disabled:bg-slate-100 p-2";
+const defaulEyesClass = " absolute top-3 right-3 cursor-pointer";
 
 const InputBox: React.FC<InputBoxProps> = memo(forwardRef(
   ({ className, type = "text", label, rightIcon, id, leftIcon, ...props },ref) => {

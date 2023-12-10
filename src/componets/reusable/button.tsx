@@ -6,7 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: any
 }
 
-const defaultClass='w-full px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600'
+const defaultClass='w-full px-2 py-2 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600'
 const Button = ({ className, children,loading, ...props }: ButtonProps) => {
     return (
         <button className={cn(defaultClass,className)}  {...props}>
