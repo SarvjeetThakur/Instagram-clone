@@ -4,6 +4,7 @@ import Button from "../../../componets/reusable/button";
 import { instgramName } from "../sign-in/assets/images";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { authRoutes } from "../../../routes/routes";
+import Page from "../../../componets/page";
 const SignUp = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -12,7 +13,7 @@ const SignUp = () => {
 
   }
   return (
-    <>
+    <Page>
       <div className="flex justify-center items-center flex-row m-4">
         <div>
           <div className=" border border-[#cfc8c8] w-[350px] p-8">
@@ -91,7 +92,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </>
+    </Page>
   );
 };
 
