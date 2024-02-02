@@ -8,9 +8,8 @@ export default function Approutes() {
     return (
         <>
 
-            <Router>
                 <Routes>
-                    
+
                     {/* Auth routing */}
                     <Route path='/auth' element={<AuthPoviders />}>
                         {Object.keys(authRoutes).map((key: string, index: number) => (
@@ -25,7 +24,6 @@ export default function Approutes() {
                         ))}
                     </Route>
                 </Routes>
-            </Router>
 
         </>
     )
