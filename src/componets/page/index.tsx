@@ -16,7 +16,12 @@ export default memo(function Page({ children }: Props): JSX.Element {
             animate="animate"
             variants={pageVariants}
         >
-            {children}
+            <div className="sm:ml-[140px]">
+                <div className="p-4 rounded-lg dark:border-gray-700">
+                    {children}
+
+                </div>
+            </div>
         </motion.div>
     )
 })

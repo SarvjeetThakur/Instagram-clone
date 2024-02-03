@@ -6,14 +6,20 @@ import SignUp from "../containers/auth/sign-up";
 interface RoutesType {
     path: string;
     element: ReactNode
-}
+};
 
+interface AuthRouteInterface{
+    signIn :RoutesType;
+    signUp:RoutesType;
+};
+export const authRoutes :AuthRouteInterface = {
+    signIn: { path: '/auth/sign-in', element: <SignIn /> },
+    signUp: { path: '/auth/sign-up', element: <SignUp /> }
+};
 
-export const authRoutes = {
-    signIn: { path: '/auth/sign-in', element: <SignIn /> } as RoutesType,
-    signUp: { path: '/auth/sign-up', element: <SignUp /> } as RoutesType,
-}
-
-export const appRoutes :any = {
-    home: { path: '/home', element: <Home />  }as RoutesType
-}
+interface AppRouteInterface{
+    home :RoutesType;
+};
+export const appRoutes: AppRouteInterface = {
+    home: { path: '/home', element: <Home /> },
+};
