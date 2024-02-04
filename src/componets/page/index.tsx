@@ -17,7 +17,7 @@ export default memo(function Page({ children }: Props): JSX.Element {
             variants={pageVariants}
         >
             <div className="sm:ml-[140px]">
-                <div className="p-4 rounded-lg dark:border-gray-700">
+                <div className=" rounded-lg dark:border-gray-700">
                     {children}
 
                 </div>
