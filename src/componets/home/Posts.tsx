@@ -7,9 +7,13 @@ const Posts = ({ posts }: PostsPropsType) => {
       <div className="bg-white border rounded-sm max-w-md">
         <div className="flex items-center px-4 py-3">
           <img
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = `https://picsum.photos/id/1${Math.floor(Math.random() * 99)}/900/900`;
+          }}
             loading="lazy"
             className="h-8 w-8 rounded-full"
-            src={`https://picsum.photos/id/102${index}/150/150`}
+            src={`https://picsum.photos/id/${Math.floor(Math.random() * 999)}/150/150`}
             alt="profile"
             rel="image"
           />
@@ -25,7 +29,11 @@ const Posts = ({ posts }: PostsPropsType) => {
         <img
           className="h-[446px] w-[446px]"
           loading="lazy"
-          src={`https://picsum.photos/id/24${index}/900/900`}
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = `https://picsum.photos/id/1${Math.floor(Math.random() * 99)}/900/900`;
+          }}
+          src={`https://picsum.photos/id/${Math.floor(Math.random() * 999)}/900/900`}
           alt="post"
         />
         <div className="flex items-center justify-between mx-4 mt-3 mb-2">

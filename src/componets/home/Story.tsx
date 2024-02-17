@@ -1,5 +1,7 @@
 import { memo, useRef } from "react";
 import "./story.css";
+import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 type StoryPropsType = { data: any[] };
 
@@ -39,19 +41,20 @@ const Story = memo(({ data }: StoryPropsType) => {
                         >
                             {data.map((_, index: number) => (
                                 <li key={index + " " + index} className="flex flex-col items-center">
-                                    <div className="rounded-full bg-gradient-to-br from-yellow-200 to-red-500 p-1">
-                                        <a
-                                            href="#"
+                                    <div className={classNames("rounded-full bg-gradient-to-br p-1", { 'from-yellow-200 to-red-500': true }, { 'from-gray-200 to-gray-500': false })}>
+                                        <Link
+                                            to={'/story/' + 'user12/123221'}
                                             className="bg-white p-1 rounded-full block transform transition hover:rotate-6"
                                         >
                                             <img
                                                 loading="lazy"
-                                                src={`https://picsum.photos/id/4${index}/900/900`}
+                                                src={`https://picsum.photos/id/${Math.floor(Math.random() * 99)}/900/900`}
                                                 className="rounded-full"
                                                 width="60"
                                                 height="60"
+                                                alt={`story ${Math.floor(Math.random() * 99)}`}
                                             />
-                                        </a>
+                                        </Link>
                                     </div>
                                     <span className="text-sm w-16 overflow-hidden overflow-ellipsis">
                                         riksy_stam143543
